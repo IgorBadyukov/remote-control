@@ -19,7 +19,7 @@ wss.on('connection', async function connection(ws: WebSocket) {
     });
     const wsStream = createWebSocketStream(ws, { encoding: 'utf8', decodeStrings: false });
     wsStream.on('data', async (data) => {
-        await middleware(data.split(' '));
+        let response = await middleware(data.split(' '));
         ws.send(data);
     });
 });
