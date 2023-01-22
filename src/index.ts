@@ -5,7 +5,6 @@ import {middleware} from "./socket_server/middleware";
 
 const HTTP_PORT = 8181;
 
-
 console.log(`Start static http server on the ${HTTP_PORT} port!`);
 httpServer.listen(HTTP_PORT);
 
@@ -19,8 +18,8 @@ wss.on('connection', async function connection(ws: WebSocket) {
     });
     const wsStream = createWebSocketStream(ws, { encoding: 'utf8', decodeStrings: false });
     wsStream.on('data', async (data) => {
-        let response = await middleware(data.split(' '));
-        ws.send(data);
+        const response = await middleware(data.split(' '));
+        ws.send(response as String);
     });
 });
 
