@@ -3,6 +3,7 @@ import { circle } from './figure/drawCircle';
 import {rectangle} from "./figure/drawRectnagle";
 import {square} from "./figure/drawSquare";
 import {printScreen} from "./figure/printScreen";
+
 export const middleware = async (data: string[]) => {
     try {
         switch (data[0]) {
