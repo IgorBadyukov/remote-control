@@ -15,3 +15,12 @@ export const httpServer = http.createServer(function (req, res) {
         res.end(data);
     });
 });
+
+export async function runHttpServer(PORT: number) {
+    console.log(`Start static http server on the ${PORT} port!`);
+    httpServer.listen(PORT);
+
+    httpServer.on('close', () => {
+        console.log('HTTP server closed');
+    })
+}

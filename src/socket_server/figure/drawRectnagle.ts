@@ -1,0 +1,11 @@
+import {mouse, Button, left, right, down, up} from "@nut-tree/nut-js";
+
+export async function rectangle(width: number, height: number) {
+    mouse.config.mouseSpeed = 300
+    await mouse.pressButton(Button.LEFT);
+    await mouse.move(right(width));
+    await mouse.move(down(height));
+    await mouse.move(left(width));
+    await mouse.move(up(height));
+    await mouse.releaseButton(Button.LEFT);
+}
